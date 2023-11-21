@@ -1,0 +1,58 @@
+.mainApp{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(240, 240, 240);
+    display: flex;
+}
+.sideBar-holder{
+    padding: 10px;
+    width: 200px;
+    height: 100vh;
+
+    
+}
+.planHolder--cont{
+    width: 100%;
+    height: 100vh;
+    padding: 10px;
+}
+.newPlan{
+    padding-top: 10px;
+}
+
+.addNew-holder{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.NoteMakerHolder{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(240, 240, 240);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.global--holder{
+    margin-top: 10px;
+    border-radius: 4px;
+    
+    width: 100%;
+    flex-grow: 1;
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+    padding: 30px;
+}
+
+.horizontal-alligner{
+    display: flex;
+}
+
+h1{
+    color: #3d4a5c;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+

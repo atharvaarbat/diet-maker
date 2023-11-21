@@ -1,0 +1,25 @@
+@import "keep-react/src/main.min.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.formHolder{
+  width: 400px;
+  margin-top: 100px;
+}
+.formHolder h1{
+  font-weight: 700;
+  font-size: 2rem;
+}
+.submit-btn-holder{
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
