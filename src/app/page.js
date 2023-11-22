@@ -26,14 +26,14 @@ export default function Home() {
   }
   // setInputUserName()
   const handelLogin = () => {
-    // if (inputUsername == username && inputPassword == password) {
-    //   setIsLoggedIn(true);
+    if (inputUsername == username && inputPassword == password) {
+      setIsLoggedIn(true);
       
-    // }
-    // else {
-    //   console.log("Incoree")
-    // }
-    setIsLoggedIn(true);
+    }
+    else {
+      console.log("Incoree")
+    }
+    
   }
 
 
