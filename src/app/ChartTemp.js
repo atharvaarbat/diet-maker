@@ -5,20 +5,18 @@ import { Label, TextInput } from "keep-react";
 import { Button, Card, Popover, Textarea } from "keep-react";
 import { ArrowLeft, SquaresFour, Cube } from "phosphor-react";
 import "./styles/app.css";
+import "./js/html2pdf-cdn"
 
 
-import htmlToPdfMake from 'html-to-pdfmake';
-import pdfMake from 'pdfmake/build/pdfmake';
-import pdfFonts from 'pdfmake/build/vfs_fonts';
-
-
-pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 export default function ChartMaker() {
     const [clientData, setClientData] = useState();
 
     const [curntStage, setCurntStage] = useState(1);
     const componentRef = useRef();
+
+
+
 
     const handelNext1 = () => {
         console.log(clientData);
@@ -33,50 +31,45 @@ export default function ChartMaker() {
             height: height,
             weight: weight,
         });
-        window.print()
+        generatePdf();
+        // window.print()
 
 
     };
+    
+    const generatePdf = () => {
+        const opt = {
+          margin: 1,
+          filename: "myDietChart.pdf",
+          image: { type: "jpeg", quality: 0.98 },
+          html2canvas: { scale: 5, useCORS: true, logging: true },
+          jsPDF: { unit: "mm", format: "a4", orientation: "portrait",hotfixes: ["px_scaling"] },
+        };
+    
+        // Use the ref to get the HTML content of the component
+        const chartMakerRef = document.getElementById("page")
+    
+        // Check if the ref is available
+        if (chartMakerRef) {
+            // Introduce a delay before generating PDF
+              html2pdf().from(chartMakerRef).set(opt).save();
+          } else {
+            console.error("Ref not available");
+          }
+      };
+
     const handelBack2 = () => {
         setCurntStage(1);
     };
     const handelNext2 = () => {
         setCurntStage(3);
     };
-    const printPDF = () => {
-        const content = componentRef.current.innerHTML;
-
-        const pdfDefinition = {
-            content: [
-                {
-                    text: 'Your PDF Title',
-                    style: 'header',
-                },
-                {
-                    text: content,
-                    style: 'content',
-                },
-            ],
-            styles: {
-                header: {
-                    fontSize: 18,
-                    bold: true,
-                    margin: [0, 0, 0, 10],
-                },
-                content: {
-                    fontSize: 12,
-                },
-            },
-        };
-
-        const pdfDocGenerator = pdfMake.createPdf(pdfDefinition);
-        pdfDocGenerator.download('your_page.pdf');
-    };
-
-
+    
 
     return (
-        <div ref={componentRef} className="NoteMakerHolder">
+        <>
+        
+        <div ref={componentRef} id="page" className="NoteMakerHolder">
             <Card className="p-6 max-w-xl">
                 <Card.Container className="flex items-start md:gap-5 gap-3.5">
                     <Card.Container className="flex items-center justify-center rounded-full bg-metal-50 md:p-4 p-2.5">
@@ -379,7 +372,10 @@ export default function ChartMaker() {
                             <Button onClick={handelNext1} size="md" type="primary">
                                 Next
                             </Button>
-                            <Button onClick={printPDF} size="md" type="primary">
+                            <Button id="download"  size="md" type="primary">
+                                Download PDF
+                            </Button>
+                            <Button id="download"  size="md" type="primary">
                                 Download PDF
                             </Button>
 
@@ -411,5 +407,7 @@ export default function ChartMaker() {
                 )}
             </div>
         </div>
+
+        </>
     );
 }
