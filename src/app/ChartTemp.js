@@ -119,6 +119,9 @@ export default function ChartMaker() {
 
                             <br />
                             <br />
+                            <br />
+                            <br />
+                            <br />
                             <div id="meal1" className="mealBox">
                                 <h1>Meal 1</h1>
 
