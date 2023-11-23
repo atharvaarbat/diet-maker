@@ -31,8 +31,8 @@ export default function ChartMaker() {
             height: height,
             weight: weight,
         });
-        generatePdf();
-        // window.print()
+        // generatePdf();
+        window.print()
 
 
     };
