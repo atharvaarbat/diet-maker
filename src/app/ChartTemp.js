@@ -5,7 +5,7 @@ import { Label, TextInput } from "keep-react";
 import { Button, Card, Popover, Textarea } from "keep-react";
 import { ArrowLeft, SquaresFour, Cube } from "phosphor-react";
 import "./styles/app.css";
-import "./js/html2pdf-cdn"
+
 
 
 
