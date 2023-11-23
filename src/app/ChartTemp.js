@@ -68,6 +68,9 @@ export default function ChartMaker() {
 
     return (
         <>
+        <head>
+            <title>{clientData.name + " DC by Dewyani Arbat (Synergy)"}</title>
+        </head>
 
             <div ref={componentRef} id="page" className="NoteMakerHolder">
                 <Card className="p-6 max-w-xl">
@@ -128,7 +131,7 @@ export default function ChartMaker() {
                                     border={true}
                                     rows={2}
                                 />
-                                <br />
+                        
 
                                 <br />
                                 <Textarea
@@ -192,7 +195,7 @@ export default function ChartMaker() {
                                     border={true}
                                     rows={2}
                                 />
-                                <br />
+                        
 
                                 <br />
                                 <Textarea
@@ -256,7 +259,7 @@ export default function ChartMaker() {
                                     border={true}
                                     rows={2}
                                 />
-                                <br />
+                        
 
                                 <br />
                                 <Textarea
@@ -320,7 +323,7 @@ export default function ChartMaker() {
                                     border={true}
                                     rows={2}
                                 />
-                                <br />
+                        
 
                                 <br />
                                 <Textarea
