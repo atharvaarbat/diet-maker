@@ -1,10 +1,11 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Label, TextInput, Button } from "keep-react";
 import { Envelope } from "phosphor-react";
 import { EyeSlash, Lock } from "phosphor-react";
 import UserData from "./data"
 import App from "./App"
+import Cookies from 'js-cookie';
 
 
 
@@ -27,6 +28,7 @@ export default function Home() {
   // setInputUserName()
   const handelLogin = () => {
     if (inputUsername == username && inputPassword == password) {
+      Cookies.set('isLogedIn', 'true');
       setIsLoggedIn(true);
       
     }
@@ -36,10 +38,22 @@ export default function Home() {
     
   }
 
+  useEffect(() => {
+    yourFunction();
+  }, []);
+  const yourFunction = () => {
+    
+    if (Cookies.get('isLogedIn') == 'true') {
+      setIsLoggedIn(true);
+      
+    }
+    console.log('Page loaded!');
+  };
+
 
   return (
     <div id="appBody">
-      {!isLoggedIn ? (
+      {!isLoggedIn || Cookies.get('isLogedIn') == 'false' ? (
       <div className="formHolder">
       <img src="./Logo XL Dark.png" width="120px" alt="" srcset="" />
       <br />
